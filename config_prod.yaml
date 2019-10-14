@@ -1,0 +1,19 @@
+db:
+  dsn: "root:%s@tcp(127.0.0.1:33306)/example?charset=utf8&parseTime=true&loc=Asia%%2fShanghai"
+  pwd: "cb3ef0a40676b8934b163d6a601a08cc"
+  maxidle_conn: 5
+  maxopen_conn: 100
+
+app:
+  id: 103
+  secret: "35129b8b18713fe4f8e8618b607ede6dc83a60c0bf76ec35ae4cfcc7db76d746630b86e8b37edeae7f7bcca7c4dd14f7"
+
+listen:
+  domain: "127.0.0.1:8080" # 内部访问本服务的地址
+  address: "0.0.0.0:8080"
+
+goroutine:
+  concurrent_num: 10
+  retry_count: 60
+  sleep_time: 1
+

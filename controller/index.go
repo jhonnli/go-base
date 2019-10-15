@@ -22,6 +22,6 @@ func index(ctx *gin.Context) {
 
 func health(ctx *gin.Context) {
 	result := make(map[string]string)
-	result["status"] = "UP"
+	result["status"] = "service status is up"
 	ctx.JSON(http.StatusOK, result)
 }

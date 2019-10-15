@@ -16,6 +16,8 @@ type config struct {
 
 	//并发配置
 	Goroutine goroutine_config `mapstructure:"goroutine"`
+
+	LogConfig log_config `mapstructure:"log_config"`
 }
 
 type db struct {
@@ -48,4 +50,12 @@ type goroutine_config struct {
 	ConcurrentNum int `mapstructure:"concurrent_num"`
 	RetryCount    int `mapstructure:"retry_count"`
 	SleepTime     int `mapstructure:"sleep_time"`
+}
+
+type log_config struct {
+	Encoding    string `mapstructure:"encoding"`
+	LogLevel    string `mapstructure:"log_level"`
+	ServiceName string `mapstructure:"srvice_name"`
+	StdoutPath  string `mapstructure:"stdout_path"`
+	StderrPath  string `mapstructure:"stderr_path"`
 }

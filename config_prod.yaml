@@ -17,3 +17,9 @@ goroutine:
   retry_count: 60
   sleep_time: 1
 
+log_config:
+  encoding: "console"
+  log_level: "info"
+  srvice_name: "base-service"
+  stdout_path: "/Users/liqinglei/logs/base-access.log"
+  stderr_path: "/Users/liqinglei/logs/base-error.log"

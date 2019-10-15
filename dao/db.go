@@ -21,12 +21,12 @@ func Init() {
 		os.Exit(0)
 		return
 	}
-	err = db.Ping()
+	err = db.DB().Ping()
 	if err != nil {
 		log.Fatalf("【initPublishDB.Ping】ex:%s\n", err.Error())
 		os.Exit(0)
 		return
 	}
-	db.SetMaxIdleConns(config.Config.DB.PublishDb.MaxIdleConn)
-	db.SetMaxOpenConns(config.Config.DB.PublishDb.MaxOpenConn)
+	db.DB().SetMaxIdleConns(config.Config.DB.MaxIdleConn)
+	db.DB().SetMaxOpenConns(config.Config.DB.MaxOpenConn)
 }

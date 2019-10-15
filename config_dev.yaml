@@ -1,6 +1,6 @@
 db:
-  dsn: "root:%s@tcp(127.0.0.1:33306)/example?charset=utf8&parseTime=true&loc=Asia%%2fShanghai"
-  pwd: "cb3ef0a40676b8934b163d6a601a08cc"
+  dsn: "root:%s@tcp(127.0.0.1:3306)/example?charset=utf8&parseTime=true&loc=Asia%%2fShanghai"
+  pwd: "ee97ae9abba8e1f72df18c559dbe7dcf"
   maxidle_conn: 5
   maxopen_conn: 100
 

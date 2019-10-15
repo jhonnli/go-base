@@ -2,10 +2,8 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	apik8s "github.com/jhonnli/container-orchestration-service/controller/api/k8s"
-	harborController "github.com/jhonnli/container-orchestration-service/controller/business/harbor"
-	bk8s "github.com/jhonnli/container-orchestration-service/controller/business/k8s"
-	"github.com/jhonnli/container-orchestration-service/controller/common"
+	"github.com/jhonnli/go-base/controller/business/users"
+	"github.com/jhonnli/go-base/controller/common"
 	"net/http"
 )
 
@@ -15,9 +13,8 @@ func Init(engine *gin.Engine) {
 	engine.NoRoute(func(c *gin.Context) {
 		c.JSON(404, common.Result{Code: "not found", Message: "Page not found"})
 	})
-	bk8s.Init(engine)
-	harborController.Init(engine)
-	apik8s.Init(engine)
+	//bk8s.Init(engine)
+	users.Init(engine)
 }
 
 func index(ctx *gin.Context) {

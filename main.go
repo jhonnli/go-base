@@ -16,8 +16,7 @@ func main() {
 	initial.InitLog()
 	dao.Init()
 	controller.Init(r)
-	initial.Log.Info("go-base示例启动成功")
 	go cronjob.DoWork()
+	initial.Log.Info("go-base示例启动成功")
 	r.Run(config.Config.Listen.Address)
-
 }

@@ -1,10 +1,11 @@
-package crontab
+package cronjob
 
 import (
-	"github.com/jhonnli/logs"
+	"fmt"
+	"github.com/jhonnli/go-base/initial"
 	"time"
 )
 
 func CronTest() {
-	logs.Info("定时任务开始执行，现在时间是：%s", time.Now().Format(time.RFC3339))
+	initial.Log.Info(fmt.Sprintf("定时任务开始执行，现在时间是：%s", time.Now().Format(time.RFC3339)))
 }

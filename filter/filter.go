@@ -1,8 +1,9 @@
 package filter
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/jhonnli/logs"
+	"github.com/jhonnli/go-base/initial"
 )
 
 const (
@@ -20,7 +21,7 @@ func ClientAuth() gin.HandlerFunc {
 		secret := c.GetHeader(SECRET)
 		appId := c.GetHeader(APPID)
 		if secret == "" || appId == "" {
-			logs.Warn("获取%s时secret/appId校验失败", c.Request.URL)
+			initial.Log.Info(fmt.Sprintf("获取%s时secret/appId校验失败", c.Request.URL))
 			c.Abort()
 			return
 		}

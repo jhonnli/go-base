@@ -1,14 +1,22 @@
 package initial
 
 import (
-	"fmt"
-	"github.com/jhonnli/logs"
+	//"github.com/jhonnli/logs"
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
+var Log *zap.Logger
+
 func InitLog() {
-	logs.Async()
-	logs.Async(1e4)
-	logs.SetLogger(logs.AdapterConsole, fmt.Sprintf(`{"level":%d}`, logs.LevelError))
-	logs.EnableFuncCallDepth(true)
-	logs.SetLogFuncCallDepth(3)
+	logger, _ := zap.Config{
+		Encoding:         "console",
+		EncoderConfig:    zap.NewDevelopmentEncoderConfig(),
+		Level:            zap.NewAtomicLevelAt(zapcore.InfoLevel),
+		OutputPaths:      []string{"stdout"},
+		ErrorOutputPaths: []string{"stderr"},
+	}.Build()
+	defer logger.Sync()
+	zap.ReplaceGlobals(logger)
+	Log = zap.L()
 }

@@ -15,5 +15,6 @@ require (
 	github.com/leodido/go-urn v1.1.0 // indirect
 	github.com/robfig/cron v1.2.0
 	github.com/spf13/viper v1.4.0
+	go.uber.org/zap v1.10.0
 	gopkg.in/go-playground/validator.v9 v9.30.0
 )

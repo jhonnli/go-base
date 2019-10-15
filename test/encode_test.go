@@ -33,5 +33,5 @@ func encordTest(str string) {
 }
 
 func Test_encord(t *testing.T) {
-	encordTest("liqinglei")
+	encordTest("")
 }

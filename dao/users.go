@@ -7,7 +7,7 @@ import (
 
 func GetUserList() []model.Users {
 	var userList []model.Users
-	defer db.Close()
+	//defer db.Close()
 	if err := db.Find(&userList).Error; err != nil {
 		fmt.Println(err)
 		return nil

@@ -13,7 +13,6 @@ func Init(engine *gin.Engine) {
 	engine.NoRoute(func(c *gin.Context) {
 		c.JSON(404, common.Result{Code: "not found", Message: "Page not found"})
 	})
-	//bk8s.Init(engine)
 	users.Init(engine)
 }
 

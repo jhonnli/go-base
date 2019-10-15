@@ -2,10 +2,11 @@ package dao
 
 import (
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/jhonnli/go-base/initial"
 	"github.com/jhonnli/go-base/initial/config"
 	"github.com/jinzhu/gorm"
-	"log"
+	//_ "github.com/go-sql-driver/mysql"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"os"
 )
 
@@ -15,15 +16,16 @@ var (
 )
 
 func Init() {
-	db, err = gorm.Open("mysql", fmt.Sprintf(config.Config.DB.Dsn, config.Config.DB.Pwd))
+	db, err = gorm.Open("postgres", fmt.Sprintf(config.Config.DB.Dsn, config.Config.DB.Pwd))
+	//db, err = gorm.Open("mysql", fmt.Sprintf(config.Config.DB.Dsn, config.Config.DB.Pwd))
 	if err != nil {
-		log.Fatalf("【initPublishDB.NewEngine】ex:%s\n", err.Error())
+		initial.Log.Error(fmt.Sprintf("【initPublishDB.NewEngine】ex:%s\n", err.Error()))
 		os.Exit(0)
 		return
 	}
 	err = db.DB().Ping()
 	if err != nil {
-		log.Fatalf("【initPublishDB.Ping】ex:%s\n", err.Error())
+		initial.Log.Error(fmt.Sprintf("【initPublishDB.Ping】ex:%s\n", err.Error()))
 		os.Exit(0)
 		return
 	}

@@ -3,7 +3,7 @@ package common
 import (
 	"bytes"
 	"fmt"
-	"github.com/jhonnli/logs"
+	"github.com/jhonnli/go-base/initial"
 	"github.com/json-iterator/go"
 	"io"
 	"io/ioutil"
@@ -115,7 +115,7 @@ func (req *Request) Do() Result {
 	request.Header = req.headers
 	resp, err := req.client.Do(request)
 	if err != nil {
-		logs.Error(err.Error())
+		initial.Log.Error(err.Error())
 		if err, ok := err.(net.Error); ok && err.Timeout() {
 			req.err = err
 			return Result{
@@ -124,7 +124,7 @@ func (req *Request) Do() Result {
 		}
 	}
 	data, err := ioutil.ReadAll(resp.Body)
-	log.Println("Value: ", string(data))
+	initial.Log.Error(fmt.Sprintf("Value: ", string(data)))
 	resp.Body.Close()
 	result = Result{
 		body:        data,

@@ -1,7 +1,8 @@
-package crontab
+package cronjob
 
 import (
-	"github.com/jhonnli/logs"
+	"fmt"
+	"github.com/jhonnli/go-base/initial"
 	"github.com/robfig/cron"
 	"time"
 )
@@ -20,7 +21,7 @@ func start() {
 
 func recoverPanic() {
 	if err := recover(); err != nil {
-		logs.Error("【recoverPanic】global-ex：%v ", err)
+		initial.Log.Error(fmt.Sprintf("【recoverPanic】global-ex：%v ", err))
 	}
 }
 
